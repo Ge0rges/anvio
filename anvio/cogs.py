@@ -497,6 +497,12 @@ class COGsSetup:
                                   'type': 'database',
                                   'formatted_file_name': 'IGNORE_THIS_AND_SEE_THE_FUNCTION'}
                              },
+                              'checksums.md5.txt': {
+                                  'url': 'ftp://ftp.ncbi.nih.gov//pub/COG/COG2020/data/checksums.md5.txt',
+                                  'func': self.check_hash,
+                                  'type': 'essential',
+                                  'formatted_file_name': 'IGNORE_THIS_AND_SEE_THE_FUNCTION'}
+                             },
                          }
 
         A = lambda x: args.__dict__[x] if x in args.__dict__ else None
@@ -813,6 +819,9 @@ class COGsSetup:
 
         os.remove(temp_fasta_path)
 
+    def check_data_hash(self, input_file_path, output_file_path):
+        return
+        
 
     def get_raw_data(self):
         if not os.path.exists(self.raw_NCBI_files_dir):
